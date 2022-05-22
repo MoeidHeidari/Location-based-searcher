@@ -7,7 +7,7 @@ import { IsDefined, IsNotEmpty, IsNumber } from 'class-validator';
 /**
  * List of allowed properties in this DTO
  */
-const allowedProperties = ['latitude', 'longitude'];
+const allowedProperties = ['lat', 'long'];
 /**
  * Location DTO
  */
@@ -22,7 +22,7 @@ export class LocationDTO {
     description: 'latitude',
     example: 5,
   })
-  latitude: number;
+  lat: number;
   /**
    * Longitude of the provided location.
    */
@@ -33,7 +33,7 @@ export class LocationDTO {
     description: 'longitude',
     example: 5,
   })
-  longitude: number;
+  long: number;
 
 
   /**

@@ -83,3 +83,43 @@ export async function validateOutputDTO(dto: any, logger: any): Promise<any> {
 }
 
 //==================================================================================================
+/**
+ * Paginates the retrived list of array elements
+ * @param array Array to perform pagination on
+ * @param page_size number of the page
+ * @param page_number limit number of the elements
+ * @returns a list of elements
+ */
+export async function paginate(array:any, page_size:number, page_number:number) {
+  // human-readable page numbers usually start with 1, so we reduce 1 in the first argument
+  return array.slice((page_number - 1) * page_size, page_number * page_size);
+}
+//===================================================================================================
+/**
+ * Calculates the distance between two given locations
+ * @param lat1 latitude_one
+ * @param lon1 longitude_one
+ * @param lat2 latitude_two
+ * @param lon2 longitude_two
+ * @returns float number
+ */
+export async function distance(lat1:number, lon1:number, lat2:number, lon2:number) {
+  var p = 0.017453292519943295;
+  var c = Math.cos;
+  var a = 0.5 - c((lat2 - lat1) * p)/2 + 
+          c(lat1 * p) * c(lat2 * p) * 
+          (1 - c((lon2 - lon1) * p))/2;
+
+  return 12742 * Math.asin(Math.sqrt(a));
+}
+//===================================================================================================
+/**
+ * 
+ * @param arr Provides async filtering
+ * @param predicate predicate parameter
+ * @returns list of elements
+ */
+export async function asyncFilter(arr:any, predicate:any){
+  const results = await Promise.all(arr.map(predicate));
+  return arr.filter((_v:any, index:any) => results[index]);
+}

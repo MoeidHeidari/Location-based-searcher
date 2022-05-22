@@ -20,6 +20,7 @@ import {
   import { ApiBody, ApiOperation, ApiParam, ApiResponse } from '@nestjs/swagger';
 import { InvitationResponseDTO } from '../dtos/invitation-response.dto';
 import { InvitationRquestDTO } from '../dtos/invitation-request.dto';
+import { SingleCustomerRequestDTO } from '../dtos/single-customer-request.dto';
   /**
    * Invitation controller
    */
@@ -66,8 +67,31 @@ import { InvitationRquestDTO } from '../dtos/invitation-request.dto';
     @HttpCode(HttpStatus.OK)
     @Public()
     async invitation(@Query() query: any): Promise<HttpResponse> {
-      //const response: HttpResponse = await this.invitationservice.handlInvitationRequest(new InvitationRquestDTO(query));
-      return query;
+      console.log(query);
+      
+      const response: HttpResponse = await this.invitationservice.handlInvitationRequest(new InvitationRquestDTO(query));
+      return response;
+    }
+    //===========================================================================================================================
+    /**
+     * Takes an id and returns the customer associated with.
+     * @param wuery contains user id
+     * @returns HTTPReponse
+     */
+    @ApiOperation({ summary: 'Returns single customer with id' })
+    @ApiResponse({
+      status: 200,
+      description: 'Returns single customer with id',
+      type: InvitationResponseDTO,
+    })
+    @ApiBody({ type: [InvitationRquestDTO] })
+    @Header('content-type', 'application/json')
+    @Get('customer')
+    @HttpCode(HttpStatus.OK)
+    @Public()
+    async singleCustomer(@Query() query: any): Promise<HttpResponse> {
+      const response: HttpResponse = await this.invitationservice.getOneCustomerById(new SingleCustomerRequestDTO(query));
+      return response;
     }
   }
   
