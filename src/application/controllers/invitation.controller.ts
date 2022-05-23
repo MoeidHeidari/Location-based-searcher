@@ -67,7 +67,6 @@ import { SingleCustomerRequestDTO } from '../dtos/single-customer-request.dto';
     @HttpCode(HttpStatus.OK)
     @Public()
     async invitation(@Query() query: any): Promise<HttpResponse> {
-      console.log(query);
       
       const response: HttpResponse = await this.invitationservice.handlInvitationRequest(new InvitationRquestDTO(query));
       return response;

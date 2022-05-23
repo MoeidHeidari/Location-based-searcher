@@ -46,7 +46,9 @@ export class InvitationService {
             await validateDTO(query, this.httpResponseService);
             const page = Number(query.page);
             const limit = Number(query.limit);
-            const customers = await this.invitationRepository.findAll(query,new Location(52.493256,13.446082));
+            const customers = await this.invitationRepository.findAll(query,new Location(Number(this.options.parloa_lat),Number(this.options.parloa_long)));
+            
+            
             const result = new InvitationResponseDTO({
                 list: customers,
                 page: page,

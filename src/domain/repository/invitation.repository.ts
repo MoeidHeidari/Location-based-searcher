@@ -4,9 +4,14 @@ import { Customer, Location } from "../entities";
 import { asyncFilter, distance, paginate, readFile } from "../helpers";
 import { Customers } from "../seeder";
 
-
+/**
+ * Invitation repository class
+ */
 @Injectable()
 export class InvitationRepository{
+    /**
+     * Invitation repository constructor
+     */
     constructor(){}
 
     /**
@@ -17,6 +22,14 @@ export class InvitationRepository{
      * Seeds the Customers list from Given customers.txt file
      */
     async onApplicationBootstrap() {
+       await this.init();
+        
+    }
+    //================================================================================================================
+    /**
+     * Initializes the customers list. reads from file, reformat and saves into the Customers list.
+     */
+    async init(){
         for(let line of (await readFile('src/domain/repository/customers.txt')).split('\n'))
         {
             try {

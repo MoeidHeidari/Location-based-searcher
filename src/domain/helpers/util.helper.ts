@@ -114,7 +114,7 @@ export async function distance(lat1:number, lon1:number, lat2:number, lon2:numbe
 }
 //===================================================================================================
 /**
- * 
+ * Asynchronous filtering on an array
  * @param arr Provides async filtering
  * @param predicate predicate parameter
  * @returns list of elements
