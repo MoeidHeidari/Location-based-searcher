@@ -32,71 +32,157 @@
                <div class="content getting-started">
                    <div class="content-data">
 
-<h1 id="parloa">Parloa</h1>
+<h1 id="parloa-anniversary">Parloa anniversary</h1>
+<h2 id="service-description">Service description?</h2>
 <p>parloa celebrates its company anniversary and wants to invite all customers located within a 100km radius. This repository hosts a solution implemented to meet the requirements of Parloa&#39;s anniversary application. (for recruitment process )</p>
-<h2 id="getting-started">Getting started</h2>
-<p>To make it easy for you to get started with GitLab, here&#39;s a list of recommended next steps.</p>
-<p>Already a pro? Just edit this README.md and make it your own. Want to make it easy? <a href="#editing-this-readme">Use the template at the bottom</a>!</p>
-<h2 id="add-your-files">Add your files</h2>
-<ul>
-<li><input disabled="" type="checkbox"> <a href="https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file">Create</a> or <a href="https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file">upload</a> files</li>
-<li><input disabled="" type="checkbox"> <a href="https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line">Add files using the command line</a> or push an existing Git repository with the following command:</li>
-</ul>
-<div><pre class="line-numbers"><code class="language-none">cd existing_repo
-git remote add origin https://gitlab.com/moeidtopcoder2/parloa.git
-git branch -M main
-git push -uf origin main</code></pre></div><h2 id="integrate-with-your-tools">Integrate with your tools</h2>
-<ul>
-<li><input disabled="" type="checkbox"> <a href="https://gitlab.com/moeidtopcoder2/parloa/-/settings/integrations">Set up project integrations</a></li>
-</ul>
-<h2 id="collaborate-with-your-team">Collaborate with your team</h2>
-<ul>
-<li><input disabled="" type="checkbox"> <a href="https://docs.gitlab.com/ee/user/project/members/">Invite team members and collaborators</a></li>
-<li><input disabled="" type="checkbox"> <a href="https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html">Create a new merge request</a></li>
-<li><input disabled="" type="checkbox"> <a href="https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically">Automatically close issues from merge requests</a></li>
-<li><input disabled="" type="checkbox"> <a href="https://docs.gitlab.com/ee/user/project/merge_requests/approvals/">Enable merge request approvals</a></li>
-<li><input disabled="" type="checkbox"> <a href="https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html">Automatically merge when pipeline succeeds</a></li>
-</ul>
-<h2 id="test-and-deploy">Test and Deploy</h2>
-<p>Use the built-in continuous integration in GitLab.</p>
-<ul>
-<li><input disabled="" type="checkbox"> <a href="https://docs.gitlab.com/ee/ci/quick_start/index.html">Get started with GitLab CI/CD</a></li>
-<li><input disabled="" type="checkbox"> <a href="https://docs.gitlab.com/ee/user/application_security/sast/">Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)</a></li>
-<li><input disabled="" type="checkbox"> <a href="https://docs.gitlab.com/ee/topics/autodevops/requirements.html">Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy</a></li>
-<li><input disabled="" type="checkbox"> <a href="https://docs.gitlab.com/ee/user/clusters/agent/">Use pull-based deployments for improved Kubernetes management</a></li>
-<li><input disabled="" type="checkbox"> <a href="https://docs.gitlab.com/ee/ci/environments/protected_environments.html">Set up protected environments</a></li>
-</ul>
+<h2 id="prerequisites">Prerequisites:</h2>
+<p>NPM 14.X</p>
+<p>Docker</p>
+<p>docker-compose</p>
+<p>helm -for production</p>
+<p>skaffold -for production</p>
+<p>minikube (or any other kubernetes cluster) -for production</p>
 <hr>
-<h1 id="editing-this-readme">Editing this README</h1>
-<p>When you&#39;re ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!).  Thank you to <a href="https://www.makeareadme.com/">makeareadme.com</a> for this template.</p>
-<h2 id="suggestions-for-a-good-readme">Suggestions for a good README</h2>
-<p>Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.</p>
-<h2 id="name">Name</h2>
-<p>Choose a self-explaining name for your project.</p>
-<h2 id="description">Description</h2>
-<p>Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.</p>
-<h2 id="badges">Badges</h2>
-<p>On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.</p>
-<h2 id="visuals">Visuals</h2>
-<p>Depending on what you are making, it can be a good idea to include screenshots or even a video (you&#39;ll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.</p>
-<h2 id="installation">Installation</h2>
-<p>Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.</p>
-<h2 id="usage">Usage</h2>
-<p>Use examples liberally, and show the expected output if you can. It&#39;s helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.</p>
-<h2 id="support">Support</h2>
-<p>Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.</p>
-<h2 id="roadmap">Roadmap</h2>
-<p>If you have ideas for releases in the future, it is a good idea to list them in the README.</p>
-<h2 id="contributing">Contributing</h2>
-<p>State if you are open to contributions and what your requirements are for accepting them.</p>
-<p>For people who want to make changes to your project, it&#39;s helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.</p>
-<p>You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.</p>
-<h2 id="authors-and-acknowledgment">Authors and acknowledgment</h2>
-<p>Show your appreciation to those who have contributed to the project.</p>
-<h2 id="license">License</h2>
-<p>For open source projects, say how it is licensed.</p>
-<h2 id="project-status">Project status</h2>
-<p>If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.</p>
+<h2 id="clone">Clone</h2>
+<div><pre class="line-numbers"><code class="language-bash">git clone https://gitlab.com/moeidtopcoder2/parloa.git
+
+
+
+cd parloa</code></pre></div><hr>
+<h2 id="hierarchy">Hierarchy</h2>
+<div><pre class="line-numbers"><code class="language-bash">├── k8s
+
+│ └── templates
+
+│ └── tests
+
+├── scripts
+
+├── src
+
+│ ├── application
+
+│ │ ├── controllers
+
+│ │ └── dtos
+
+│ ├── domain
+
+│ │ ├── decorators
+
+│ │ ├── entities
+
+│ │ ├── enums
+
+│ │ │ └── httpResponse
+
+│ │ ├── exceptions
+
+│ │ ├── guards
+
+│ │ ├── helpers
+
+│ │ ├── interceptors
+
+│ │ ├── interfaces
+
+│ │ ├── modules
+
+│ │ │ └── common
+
+│ │ ├── pipes
+
+│ │ └── services
+
+│ │ └── repositories
+
+│ │ └── common
+
+│ └── infrastructure
+
+│ ├── config
+
+│ └── modules
+
+│ └── common
+
+└── __test__
+
+├── controllers
+
+├── e2e
+
+├── factories
+
+└── service</code></pre></div><hr>
+<h2 id="instllation">Instllation</h2>
+<div><pre class="line-numbers"><code class="language-bash">cd scripts
+
+bash start.h {argument}</code></pre></div><p>Arguments:</p>
+<div><pre class="line-numbers"><code class="language-bash">bash start.h -h
+
+
+
+-h, --help Print this help and exit
+
+-build_docker Build the docker image called &quot;invitation:latest&quot;
+
+-build_and_run_docker Build the docker image and run on local machine
+
+-stop_docker Stop running docker container named &quot;invitation&quot;
+
+-run_app Run application with npm in usual way for development
+
+-run_test Run npm test
+
+-run_lint Run npm lint
+
+-generate_doc Generate the code documentation
+
+-deploy_on_kubernetes you need to have a kubernetes cluster already up and running on the machine.</code></pre></div><hr>
+<h3 id="run-without-script">Run without script</h3>
+<div><pre class="line-numbers"><code class="language-bash">npm install
+
+npm start</code></pre></div><hr>
+<h3 id="run-the-tests">Run the tests</h3>
+<div><pre class="line-numbers"><code class="language-bash">npm test</code></pre></div><hr>
+<h3 id="linting">linting</h3>
+<div><pre class="line-numbers"><code class="language-bash">npm run lint</code></pre></div><hr>
+<h3 id="generate-documentation">generate documentation</h3>
+<div><pre class="line-numbers"><code class="language-bash">npm run doc</code></pre></div><p>running on</p>
+<p><a href="http://localhost:7000">http://localhost:7000</a></p>
+<hr>
+<h3 id="build-docker-image">Build docker image</h3>
+<div><pre class="line-numbers"><code class="language-bash">docker build . -t {image-name}</code></pre></div><hr>
+<h3 id="env">.env</h3>
+<div><pre class="line-numbers"><code class="language-bash">NODE_ENV={production|development}
+
+NODE_PORT={port-number}
+
+PARLOA_LAT={parloa (default is 52.493256)}
+PARLOA_LONG={parloa (default is 52.493256)}</code></pre></div><hr>
+<h3 id="run-in-browser">Run in Browser</h3>
+<p><a href="http://localhost:%7Bport-number%7D/api/v1/invitation/customers?radius=%7Bradius%7D&amp;page=%7Bpage_number_%7D&amp;limit=%7Blimit_number%7D">http://localhost:{port-number}/api/v1/invitation/customers?radius={radius}&amp;page={page_number_}&amp;limit={limit_number}</a></p>
+<p><img src="/images/invitation.png" alt="" class="img-responsive"></p>
+<hr>
+<h3 id="api-documentation">API documentation</h3>
+<p><a href="http://localhost:%7Bport-number%7D/api">http://localhost:{port-number}/api</a></p>
+<p><img src="/images/swagger.png" alt="" class="img-responsive"></p>
+<hr>
+<h3 id="health-check">Health check</h3>
+<p><a href="http://localhost:%7Bport-number%7D/health">http://localhost:{port-number}/health</a></p>
+<p><img src="/images/liveness.png" alt="" class="img-responsive"></p>
+<hr>
+<h3 id="deploy-to-kubernetes">Deploy to kubernetes</h3>
+<p>through Makefile</p>
+<div><pre class="line-numbers"><code class="language-bash">make</code></pre></div><p>through config files</p>
+<div><pre class="line-numbers"><code class="language-bash">cd k8s/configFiles
+
+
+
+kubectl apply -f invitation-namespace.yaml,invitation-configmap.yaml,invitation-configmap.yaml,invitation-deployment.yaml,invitation-service.yaml</code></pre></div><p><img src="/images/kubernetes.png" alt="" class="img-responsive"></p>
+<h3 id="prometheus-metrics">Prometheus metrics</h3>
+<p><a href="http://localhost:%7Bport-number%7D/metrics">http://localhost:{port-number}/metrics</a></p>
 
 
 

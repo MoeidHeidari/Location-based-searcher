@@ -101,16 +101,16 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 </li>
                             </li>
                             <li class="link">
-                                <a href="modules/IntersectionModule.html" data-type="entity-link" >IntersectionModule</a>
+                                <a href="modules/InvitationModule.html" data-type="entity-link" >InvitationModule</a>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-IntersectionModule-1e0878f5d81dd1dff922994db1ad7d8264757d6e78ca41fbdb1e8cefbb73fb8cad88bca128422961a8a13544f9be342c62940096fae1f60ae35cb3344c081c6f"' : 'data-target="#xs-injectables-links-module-IntersectionModule-1e0878f5d81dd1dff922994db1ad7d8264757d6e78ca41fbdb1e8cefbb73fb8cad88bca128422961a8a13544f9be342c62940096fae1f60ae35cb3344c081c6f"' }>
+                                        'data-target="#injectables-links-module-InvitationModule-7e830bd97c3cf7b37f7da5df04eae84e76bd67ca5d4ddf0fe6755a505531a3885bb9d46d5f621c4c6719af3056ca2cafc04b5c018058c53bbec785e4f8ad2843"' : 'data-target="#xs-injectables-links-module-InvitationModule-7e830bd97c3cf7b37f7da5df04eae84e76bd67ca5d4ddf0fe6755a505531a3885bb9d46d5f621c4c6719af3056ca2cafc04b5c018058c53bbec785e4f8ad2843"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-IntersectionModule-1e0878f5d81dd1dff922994db1ad7d8264757d6e78ca41fbdb1e8cefbb73fb8cad88bca128422961a8a13544f9be342c62940096fae1f60ae35cb3344c081c6f"' :
-                                        'id="xs-injectables-links-module-IntersectionModule-1e0878f5d81dd1dff922994db1ad7d8264757d6e78ca41fbdb1e8cefbb73fb8cad88bca128422961a8a13544f9be342c62940096fae1f60ae35cb3344c081c6f"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-InvitationModule-7e830bd97c3cf7b37f7da5df04eae84e76bd67ca5d4ddf0fe6755a505531a3885bb9d46d5f621c4c6719af3056ca2cafc04b5c018058c53bbec785e4f8ad2843"' :
+                                        'id="xs-injectables-links-module-InvitationModule-7e830bd97c3cf7b37f7da5df04eae84e76bd67ca5d4ddf0fe6755a505531a3885bb9d46d5f621c4c6719af3056ca2cafc04b5c018058c53bbec785e4f8ad2843"' }>
                                         <li class="link">
                                             <a href="injectables/InvitationRepository.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >InvitationRepository</a>
                                         </li>
