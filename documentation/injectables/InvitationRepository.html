@@ -114,30 +114,6 @@
     </table>
 </section>
 
-            <section>
-    <h3 id="constructor">Constructor</h3>
-        <table class="table table-sm table-bordered">
-            <tbody>
-                <tr>
-                    <td class="col-md-4">
-<code>constructor()</code>
-                    </td>
-                </tr>
-                        <tr>
-                            <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/domain/repository/invitation.repository.ts:11</a></div>
-                            </td>
-                        </tr>
-
-                <tr>
-                    <td class="col-md-4">
-                            <div class="io-description"><p>Invitation repository constructor</p>
-</div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-</section>
 
             <section>
     
@@ -166,8 +142,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="69"
-                            class="link-to-prism">src/domain/repository/invitation.repository.ts:69</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="64"
+                            class="link-to-prism">src/domain/repository/invitation.repository.ts:64</a></div>
                 </td>
             </tr>
 
@@ -261,8 +237,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="52"
-                            class="link-to-prism">src/domain/repository/invitation.repository.ts:52</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="48"
+                            class="link-to-prism">src/domain/repository/invitation.repository.ts:48</a></div>
                 </td>
             </tr>
 
@@ -340,8 +316,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="32"
-                            class="link-to-prism">src/domain/repository/invitation.repository.ts:32</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">src/domain/repository/invitation.repository.ts:29</a></div>
                 </td>
             </tr>
 
@@ -381,8 +357,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="24"
-                            class="link-to-prism">src/domain/repository/invitation.repository.ts:24</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="22"
+                            class="link-to-prism">src/domain/repository/invitation.repository.ts:22</a></div>
                 </td>
             </tr>
 
@@ -406,88 +382,84 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ArgumentsHost, Catch, ExceptionFilter, Injectable, InternalServerErrorException, NotFoundException } from &quot;@nestjs/common&quot;;
-import { InvitationRquestDTO } from &quot;../../application/dtos&quot;;
-import { Customer, Location } from &quot;../entities&quot;;
-import { asyncFilter, distance, paginate, readFile } from &quot;../helpers&quot;;
-import { Customers } from &quot;../seeder&quot;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  ArgumentsHost,
+  Catch,
+  ExceptionFilter,
+  Injectable,
+  InternalServerErrorException,
+  NotFoundException,
+} from &#x27;@nestjs/common&#x27;;
+import { InvitationRquestDTO } from &#x27;../../application/dtos&#x27;;
+import { Customer, Location } from &#x27;../entities&#x27;;
+import { asyncFilter, distance, paginate, readFile } from &#x27;../helpers&#x27;;
+import { Customers } from &#x27;../seeder&#x27;;
 
 /**
  * Invitation repository class
  */
 @Injectable()
-export class InvitationRepository{
-    /**
-     * Invitation repository constructor
-     */
-    constructor(){}
-
-    /**
-     * 
-     */
-    //&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
-    /**
-     * Seeds the Customers list from Given customers.txt file
-     */
-    async onApplicationBootstrap() {
-       await this.init();
-        
+export class InvitationRepository {
+  /**
+   * Seeds the Customers list from Given customers.txt file
+   */
+  async onApplicationBootstrap() {
+    await this.init();
+  }
+  //&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
+  /**
+   * Initializes the customers list. reads from file, reformat and saves into the Customers list.
+   */
+  async init() {
+    for (let line of (await readFile(&#x27;src/domain/repository/customers.txt&#x27;)).split(&#x27;\n&#x27;)) {
+      try {
+        line &#x3D; line.replace(&#x60;id: &#x60;, &#x60;&quot;id&quot;:&quot;&#x60;).replace(&#x60;, lat:&#x60;, &#x60;&quot;, &quot;lat&quot;:&#x60;).replace(&#x60;, long&#x60;, &#x60;, &quot;long&quot;&#x60;);
+        line &#x3D; &#x27;{&#x27; + line.substring(0, line.length - 2) + &#x27;}&#x27;;
+        const customer &#x3D; JSON.parse(line);
+        Customers.push(new Customer(customer.id, new Location(customer.lat, customer.long)));
+      } catch (error) {
+        process.emitWarning(&#x27;something strange happened&#x27;);
+        continue;
+      }
     }
-    //&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
-    /**
-     * Initializes the customers list. reads from file, reformat and saves into the Customers list.
-     */
-    async init(){
-        for(let line of (await readFile(&#x27;src/domain/repository/customers.txt&#x27;)).split(&#x27;\n&#x27;))
-        {
-            try {
-                line&#x3D;line.replace(&#x60;id: &#x60;,&#x60;&quot;id&quot;:&quot;&#x60;).replace(&#x60;, lat:&#x60;,&#x60;&quot;, &quot;lat&quot;:&#x60;).replace(&#x60;, long&#x60;,&#x60;, &quot;long&quot;&#x60;);
-            line&#x3D;&#x27;{&#x27;+line.substring(0,line.length-2)+&#x27;}&#x27;
-            const customer&#x3D;JSON.parse(line);
-            Customers.push(new  Customer(customer.id,new Location(customer.lat,customer.long)));
-            } catch (error) {
-                process.emitWarning(&#x27;something strange happened&#x27;);
-                continue;
-            }
-        }
-    }
-    //&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
-    /**
-     * Searchs for a customer by provided id.
-     * @param id id of the customer to retrive
-     * @returns returns a Customer
-     */
-    async findOne(id:string):Promise&lt;Customer | undefined&gt;{
+  }
+  //&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
+  /**
+   * Searchs for a customer by provided id.
+   * @param id id of the customer to retrive
+   * @returns returns a Customer
+   */
+  async findOne(id: string): Promise&lt;Customer | undefined&gt; {
     try {
-        const result&#x3D;Customers.find(customer&#x3D;&gt;customer.id&#x3D;&#x3D;&#x3D;id);
-        if(!result) throw new NotFoundException(&#x27;entity not found&#x27;);
-        return result;
+      const result &#x3D; Customers.find(customer &#x3D;&gt; customer.id &#x3D;&#x3D;&#x3D; id);
+      if (!result) throw new NotFoundException(&#x27;entity not found&#x27;);
+      return result;
     } catch (error) {
-        throw new InternalServerErrorException(error);
+      throw new InternalServerErrorException(error);
     }
-        
-    }
-    //&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
-    /**
-     * Filters all customers  within the distance.
-     * @param query query parameter to filter based on.
-     * @param current_location current location of Parloa
-     * @returns a list of Customer[]
-     */
-    async findAll(query?:InvitationRquestDTO,current_location?:Location):Promise&lt;Customer[]&gt;{
-        const result&#x3D; await asyncFilter(Customers, async (customer: Customer) &#x3D;&gt; {
-            return (await distance(Number(customer.location?.lat),Number(customer.location?.long),Number(current_location?.lat),Number(current_location?.long))&lt;&#x3D;(Number(query?.radius)))
-        });
-        result.sort((a: { id: string; }, b: { id: string; }) &#x3D;&gt; a.id &lt; b.id ? -1 : a.id &gt; b.id ? 1 : 0)
-        return paginate(result,Number(query?.limit),Number(query?.page));
-
-    }
-
-    
-
-    
+  }
+  //&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
+  /**
+   * Filters all customers  within the distance.
+   * @param query query parameter to filter based on.
+   * @param current_location current location of Parloa
+   * @returns a list of Customer[]
+   */
+  async findAll(query?: InvitationRquestDTO, current_location?: Location): Promise&lt;Customer[]&gt; {
+    const result &#x3D; await asyncFilter(Customers, async (customer: Customer) &#x3D;&gt; {
+      return (
+        (await distance(
+          Number(customer.location?.lat),
+          Number(customer.location?.long),
+          Number(current_location?.lat),
+          Number(current_location?.long)
+        )) &lt;&#x3D; Number(query?.radius)
+      );
+    });
+    result.sort((a: { id: string }, b: { id: string }) &#x3D;&gt; (a.id &lt; b.id ? -1 : a.id &gt; b.id ? 1 : 0));
+    return paginate(result, Number(query?.limit), Number(query?.page));
+  }
 }
-
 </code></pre>
     </div>
 

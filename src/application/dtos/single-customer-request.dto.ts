@@ -23,7 +23,6 @@ export class SingleCustomerRequestDTO {
   })
   id: string;
 
-
   /**
    * get signgle customer DTO constructor
    * @param properties DTO properties

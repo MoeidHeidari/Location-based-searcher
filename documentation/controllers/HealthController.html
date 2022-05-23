@@ -138,8 +138,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">src/application/controllers/health.controller.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">src/application/controllers/health.controller.ts:25</a></div>
                 </td>
             </tr>
 
@@ -183,22 +183,19 @@ export class HealthController {
    * @param health health check service
    * @param http http response
    */
-  constructor(
-    private health: HealthCheckService,
-    private http: HttpHealthIndicator,
-  ) {}
+  constructor(private health: HealthCheckService, private http: HttpHealthIndicator) {}
   //&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
-    /**
-     * Checks the liveness of the project
-     * @returns http response
-     */
+  /**
+   * Checks the liveness of the project
+   * @returns http response
+   */
   @Get()
   @HealthCheck()
   check() {
-    return {&quot;status&quot;:&quot;ok&quot;,&quot;info&quot;:{&quot;alive&quot;:{&quot;status&quot;:&quot;up&quot;}},&quot;error&quot;:{},&quot;details&quot;:{&quot;alive&quot;:{&quot;status&quot;:&quot;up&quot;}}}
-    
+    return { status: &#x27;ok&#x27;, info: { alive: { status: &#x27;up&#x27; } }, error: {}, details: { alive: { status: &#x27;up&#x27; } } };
   }
-}</code></pre>
+}
+</code></pre>
     </div>
 </div>
 

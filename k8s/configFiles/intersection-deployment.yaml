@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: invitation
+  name: invitation
+  namespace: invitation
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: invitation
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        io.kompose.service: invitation
+    spec:
+      containers:
+      - env:
+        - name: PARLOA_LAT
+          valueFrom:
+            configMapKeyRef:
+              name: invitation-config
+              key: PARLOA_LAT
+        - name: PARLOA_LONG
+          valueFrom:
+            configMapKeyRef:
+              name: invitation-config
+              key: PARLOA_LONG
+        - name: NODE_ENV
+          valueFrom:
+            configMapKeyRef:
+              name: invitation-config
+              key: NODE_ENV
+        - name: NODE_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: invitation-config
+              key: NODE_PORT
+        image: registry.gitlab.com/moeidtopcoder/invitation:latest
+        imagePullPolicy: "Always"
+        name: invitation
+        ports:
+        - containerPort: 8077
+        resources: 
+      restartPolicy: Always
+      serviceAccountName: ""
+status: {}

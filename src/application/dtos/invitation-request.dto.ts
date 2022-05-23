@@ -7,7 +7,7 @@ import { ApiProperty } from '@nestjs/swagger';
 /**
  * List of allowed properties in this DTO
  */
-const allowedProperties = ['radius','limit','page'];
+const allowedProperties = ['radius', 'limit', 'page'];
 /**
  * IOU request DTO
  */

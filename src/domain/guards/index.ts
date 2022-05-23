@@ -2,4 +2,4 @@
  * Author Moeid Heidari
  * Date 22 May 2022
  */
-export * from './roles.guard'
+export * from './roles.guard';

@@ -70,13 +70,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/HealthModule.html" data-type="entity-link" >HealthModule</a>
                                     <li class="chapter inner">
                                         <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                            'data-target="#controllers-links-module-HealthModule-b5aabe9a0d5f521ac122ccfc992289d8eb7b98b1702b05ae479193aceb6809957601977fe32ff497f96babc58feb13b235c6a06c50c4c0ed68866a8939ba74a6"' : 'data-target="#xs-controllers-links-module-HealthModule-b5aabe9a0d5f521ac122ccfc992289d8eb7b98b1702b05ae479193aceb6809957601977fe32ff497f96babc58feb13b235c6a06c50c4c0ed68866a8939ba74a6"' }>
+                                            'data-target="#controllers-links-module-HealthModule-a659f1297b907f1f0ea0fcef73349014fc354c351c98b0065ce1c6c2311f6c4116623ef94b46aed0f5d3f092f73fbd688236f9901db3cddd9906a081224d9fba"' : 'data-target="#xs-controllers-links-module-HealthModule-a659f1297b907f1f0ea0fcef73349014fc354c351c98b0065ce1c6c2311f6c4116623ef94b46aed0f5d3f092f73fbd688236f9901db3cddd9906a081224d9fba"' }>
                                             <span class="icon ion-md-swap"></span>
                                             <span>Controllers</span>
                                             <span class="icon ion-ios-arrow-down"></span>
                                         </div>
-                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-HealthModule-b5aabe9a0d5f521ac122ccfc992289d8eb7b98b1702b05ae479193aceb6809957601977fe32ff497f96babc58feb13b235c6a06c50c4c0ed68866a8939ba74a6"' :
-                                            'id="xs-controllers-links-module-HealthModule-b5aabe9a0d5f521ac122ccfc992289d8eb7b98b1702b05ae479193aceb6809957601977fe32ff497f96babc58feb13b235c6a06c50c4c0ed68866a8939ba74a6"' }>
+                                        <ul class="links collapse" ${ isNormalMode ? 'id="controllers-links-module-HealthModule-a659f1297b907f1f0ea0fcef73349014fc354c351c98b0065ce1c6c2311f6c4116623ef94b46aed0f5d3f092f73fbd688236f9901db3cddd9906a081224d9fba"' :
+                                            'id="xs-controllers-links-module-HealthModule-a659f1297b907f1f0ea0fcef73349014fc354c351c98b0065ce1c6c2311f6c4116623ef94b46aed0f5d3f092f73fbd688236f9901db3cddd9906a081224d9fba"' }>
                                             <li class="link">
                                                 <a href="controllers/HealthController.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >HealthController</a>
                                             </li>
@@ -104,13 +104,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="modules/IntersectionModule.html" data-type="entity-link" >IntersectionModule</a>
                                 <li class="chapter inner">
                                     <div class="simple menu-toggler" data-toggle="collapse" ${ isNormalMode ?
-                                        'data-target="#injectables-links-module-IntersectionModule-f47d1574fdfd2d909302d95cbdc8beb32f04ea27b99e75de02af80c1b27f22d8d4ff292ce68f08a4f8e68c7c52609caa0acf2957e04c9540b8cd6f2fa2be907d"' : 'data-target="#xs-injectables-links-module-IntersectionModule-f47d1574fdfd2d909302d95cbdc8beb32f04ea27b99e75de02af80c1b27f22d8d4ff292ce68f08a4f8e68c7c52609caa0acf2957e04c9540b8cd6f2fa2be907d"' }>
+                                        'data-target="#injectables-links-module-IntersectionModule-1e0878f5d81dd1dff922994db1ad7d8264757d6e78ca41fbdb1e8cefbb73fb8cad88bca128422961a8a13544f9be342c62940096fae1f60ae35cb3344c081c6f"' : 'data-target="#xs-injectables-links-module-IntersectionModule-1e0878f5d81dd1dff922994db1ad7d8264757d6e78ca41fbdb1e8cefbb73fb8cad88bca128422961a8a13544f9be342c62940096fae1f60ae35cb3344c081c6f"' }>
                                         <span class="icon ion-md-arrow-round-down"></span>
                                         <span>Injectables</span>
                                         <span class="icon ion-ios-arrow-down"></span>
                                     </div>
-                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-IntersectionModule-f47d1574fdfd2d909302d95cbdc8beb32f04ea27b99e75de02af80c1b27f22d8d4ff292ce68f08a4f8e68c7c52609caa0acf2957e04c9540b8cd6f2fa2be907d"' :
-                                        'id="xs-injectables-links-module-IntersectionModule-f47d1574fdfd2d909302d95cbdc8beb32f04ea27b99e75de02af80c1b27f22d8d4ff292ce68f08a4f8e68c7c52609caa0acf2957e04c9540b8cd6f2fa2be907d"' }>
+                                    <ul class="links collapse" ${ isNormalMode ? 'id="injectables-links-module-IntersectionModule-1e0878f5d81dd1dff922994db1ad7d8264757d6e78ca41fbdb1e8cefbb73fb8cad88bca128422961a8a13544f9be342c62940096fae1f60ae35cb3344c081c6f"' :
+                                        'id="xs-injectables-links-module-IntersectionModule-1e0878f5d81dd1dff922994db1ad7d8264757d6e78ca41fbdb1e8cefbb73fb8cad88bca128422961a8a13544f9be342c62940096fae1f60ae35cb3344c081c6f"' }>
                                         <li class="link">
                                             <a href="injectables/InvitationRepository.html" data-type="entity-link" data-context="sub-entity" data-context-id="modules" >InvitationRepository</a>
                                         </li>
@@ -262,9 +262,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                         </ul>
                     </li>
-                        <li class="chapter">
-                            <a data-type="chapter-link" href="routes.html"><span class="icon ion-ios-git-branch"></span>Routes</a>
-                        </li>
                     <li class="chapter">
                         <a data-type="chapter-link" href="coverage.html"><span class="icon ion-ios-stats"></span>Documentation coverage</a>
                     </li>

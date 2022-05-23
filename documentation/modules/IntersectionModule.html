@@ -225,9 +225,9 @@ import { InvitationService } from &#x27;../services/invitation.service&#x27;;
  * User module
  */
 @Module({
-  imports: [CommonModule,CacheModule.register(),],
+  imports: [CommonModule, CacheModule.register()],
   controllers: [InvitationContoller],
-  providers: [InvitationService,InvitationRepository],
+  providers: [InvitationService, InvitationRepository],
   exports: [InvitationService],
 })
 export class IntersectionModule {}

@@ -11,7 +11,7 @@ import { LocationDTO } from './location.dto';
 /**
  * List of allowed properties in this DTO
  */
-const allowedProperties = ['id','location'];
+const allowedProperties = ['id', 'location'];
 /**
  * Single customer response DTO
  */
@@ -38,7 +38,6 @@ export class SingleCustomerResponseDTO {
     description: 'Id of the customer',
   })
   id: string;
-
 
   /**
    * get signgle customer DTO constructor

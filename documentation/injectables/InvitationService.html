@@ -132,7 +132,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/domain/services/invitation.service.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/domain/services/invitation.service.ts:29</a></div>
                             </td>
                         </tr>
 
@@ -250,8 +250,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="73"
-                            class="link-to-prism">src/domain/services/invitation.service.ts:73</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="78"
+                            class="link-to-prism">src/domain/services/invitation.service.ts:78</a></div>
                 </td>
             </tr>
 
@@ -329,8 +329,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="44"
-                            class="link-to-prism">src/domain/services/invitation.service.ts:44</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="49"
+                            class="link-to-prism">src/domain/services/invitation.service.ts:49</a></div>
                 </td>
             </tr>
 
@@ -417,7 +417,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/domain/services/invitation.service.ts:24</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/domain/services/invitation.service.ts:29</a></div>
                         </td>
                     </tr>
 
@@ -438,7 +438,12 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { HttpStatus, Injectable, NotFoundException } from &#x27;@nestjs/common&#x27;;
 import { ConfigService } from &#x27;@nestjs/config&#x27;;
-import { InvitationResponseDTO, InvitationRquestDTO, SingleCustomerRequestDTO, SingleCustomerResponseDTO } from &#x27;../../application/dtos&#x27;;
+import {
+  InvitationResponseDTO,
+  InvitationRquestDTO,
+  SingleCustomerRequestDTO,
+  SingleCustomerResponseDTO,
+} from &#x27;../../application/dtos&#x27;;
 import { EnvObjects, ParloaOptions } from &#x27;../../infrastructure/config&#x27;;
 import { Location } from &#x27;../entities&#x27;;
 import { HttpResponseException } from &#x27;../exceptions&#x27;;
@@ -452,73 +457,70 @@ import { HttpResponseService, LoggerService } from &#x27;./common&#x27;;
  */
 @Injectable()
 export class InvitationService {
-    /**
-     * Options for envs
-     */
-    private options: any &#x3D; this.configService.get&lt;ParloaOptions&gt;(EnvObjects.PARLOA_OPTIONS);
-    //&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
-    /**
-     * Constructor of the invitation service class
-     * @param httpResponseService Http response service
-     * @param configService Config service
-     * @param logger Logger service
-     */
-    constructor(
-        private readonly httpResponseService: HttpResponseService,
-        private readonly configService: ConfigService,
-        private readonly logger: LoggerService,
-        private readonly invitationRepository: InvitationRepository
-    ) { }
-    //&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
-    /**
-     * Handles the Invitation request
-     * @param query a query to get back the list of customers
-     * @returns HTTPResponse
-     */
-    async handlInvitationRequest(query: InvitationRquestDTO): Promise&lt;HttpResponse&gt; {
-        try {
-            await validateDTO(query, this.httpResponseService);
-            const page &#x3D; Number(query.page);
-            const limit &#x3D; Number(query.limit);
-            const customers &#x3D; await this.invitationRepository.findAll(query,new Location(Number(this.options.parloa_lat),Number(this.options.parloa_long)));
-            
-            
-            const result &#x3D; new InvitationResponseDTO({
-                list: customers,
-                page: page,
-                number: limit,
-                next: &#x60;/api/v1/invitation/customers?radius&#x3D;${query.radius}&amp;page&#x3D;${Number(page + 1)}&amp;limit&#x3D;${query.limit}&#x60;
-            });
-            await validateOutputDTO(result, this.logger);
-            return this.httpResponseService.generate(HttpStatus.OK, result);
-        } catch (error) {
-            processHttpError(error, this.logger);
-            throw new HttpResponseException(this.httpResponseService.generate(HttpStatus.NOT_FOUND));
+  /**
+   * Options for envs
+   */
+  private options: any &#x3D; this.configService.get&lt;ParloaOptions&gt;(EnvObjects.PARLOA_OPTIONS);
+  //&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
+  /**
+   * Constructor of the invitation service class
+   * @param httpResponseService Http response service
+   * @param configService Config service
+   * @param logger Logger service
+   */
+  constructor(
+    private readonly httpResponseService: HttpResponseService,
+    private readonly configService: ConfigService,
+    private readonly logger: LoggerService,
+    private readonly invitationRepository: InvitationRepository
+  ) {}
+  //&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
+  /**
+   * Handles the Invitation request
+   * @param query a query to get back the list of customers
+   * @returns HTTPResponse
+   */
+  async handlInvitationRequest(query: InvitationRquestDTO): Promise&lt;HttpResponse&gt; {
+    try {
+      await validateDTO(query, this.httpResponseService);
+      const page &#x3D; Number(query.page);
+      const limit &#x3D; Number(query.limit);
+      const customers &#x3D; await this.invitationRepository.findAll(
+        query,
+        new Location(Number(this.options.parloa_lat), Number(this.options.parloa_long))
+      );
 
-
-        }
+      const result &#x3D; new InvitationResponseDTO({
+        list: customers,
+        page: page,
+        number: limit,
+        next: &#x60;/api/v1/invitation/customers?radius&#x3D;${query.radius}&amp;page&#x3D;${Number(page + 1)}&amp;limit&#x3D;${query.limit}&#x60;,
+      });
+      await validateOutputDTO(result, this.logger);
+      return this.httpResponseService.generate(HttpStatus.OK, result);
+    } catch (error) {
+      processHttpError(error, this.logger);
+      throw new HttpResponseException(this.httpResponseService.generate(HttpStatus.NOT_FOUND));
     }
-    //&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
-    /**
-     * Returns  back one single customer by id
-     * @param query query to get back the customer
-     * @returns HttpReponse
-     */
-    async getOneCustomerById(query: SingleCustomerRequestDTO): Promise&lt;HttpResponse&gt; {
-        try {
-            await validateDTO(query, this.httpResponseService);
-            const customer &#x3D; await this.invitationRepository.findOne(query.id);
-            const result &#x3D; new SingleCustomerResponseDTO(customer);
-            await validateOutputDTO(result, this.logger);
-            return this.httpResponseService.generate(HttpStatus.OK, result);
-        } catch (error) {
-            processHttpError(error, this.logger);
-            throw new HttpResponseException(this.httpResponseService.generate(HttpStatus.NOT_FOUND));
-        }
-
+  }
+  //&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
+  /**
+   * Returns  back one single customer by id
+   * @param query query to get back the customer
+   * @returns HttpReponse
+   */
+  async getOneCustomerById(query: SingleCustomerRequestDTO): Promise&lt;HttpResponse&gt; {
+    try {
+      await validateDTO(query, this.httpResponseService);
+      const customer &#x3D; await this.invitationRepository.findOne(query.id);
+      const result &#x3D; new SingleCustomerResponseDTO(customer);
+      await validateOutputDTO(result, this.logger);
+      return this.httpResponseService.generate(HttpStatus.OK, result);
+    } catch (error) {
+      processHttpError(error, this.logger);
+      throw new HttpResponseException(this.httpResponseService.generate(HttpStatus.NOT_FOUND));
     }
-
-
+  }
 }
 </code></pre>
     </div>

@@ -35,7 +35,6 @@ export class LocationDTO {
   })
   long: number;
 
-
   /**
    * get user DTO constructor
    * @param properties DTO properties

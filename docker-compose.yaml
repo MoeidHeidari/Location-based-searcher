@@ -13,4 +13,5 @@ services:
     environment:
       - NODE_ENV=  ${NODE_ENV}
       - NODE_PORT= ${NODE_PORT}
-      - RADIOUS= ${RADIOUS}
+      - PARLOA_LAT= ${PARLOA_LAT}
+      - PARLOA_LONG= ${PARLOA_LONG}

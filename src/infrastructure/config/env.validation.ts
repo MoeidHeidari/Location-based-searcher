@@ -18,7 +18,7 @@ class EnvironmentVariables {
    * Represents the Longitude of Parloa locatino
    */
   @IsOptional()
-  PARLOA_LONG =13.446082;
+  PARLOA_LONG = 13.446082;
 }
 
 /**

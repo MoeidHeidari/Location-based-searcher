@@ -281,8 +281,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="91"
-                            class="link-to-prism">src/application/controllers/invitation.controller.ts:91</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="90"
+                            class="link-to-prism">src/application/controllers/invitation.controller.ts:90</a></div>
                 </td>
             </tr>
 
@@ -342,97 +342,96 @@
  * Date 22 May 2022
  */
 import {
-    Controller,
-    Post,
-    Body,
-    HttpStatus,
-    HttpCode,
-    Get,
-    Header,
-    CacheInterceptor,
-    UseInterceptors,
-    Query,
-  } from &#x27;@nestjs/common&#x27;;
-  import { HttpResponse } from &#x27;../../domain/interfaces&#x27;;
-  import { Public } from &#x27;../../domain/decorators&#x27;;
-  import { InvitationService } from &#x27;../../domain/services/invitation.service&#x27;;
-  import { ApiBody, ApiOperation, ApiParam, ApiResponse } from &#x27;@nestjs/swagger&#x27;;
+  Controller,
+  Post,
+  Body,
+  HttpStatus,
+  HttpCode,
+  Get,
+  Header,
+  CacheInterceptor,
+  UseInterceptors,
+  Query,
+} from &#x27;@nestjs/common&#x27;;
+import { HttpResponse } from &#x27;../../domain/interfaces&#x27;;
+import { Public } from &#x27;../../domain/decorators&#x27;;
+import { InvitationService } from &#x27;../../domain/services/invitation.service&#x27;;
+import { ApiBody, ApiOperation, ApiParam, ApiResponse } from &#x27;@nestjs/swagger&#x27;;
 import { InvitationResponseDTO } from &#x27;../dtos/invitation-response.dto&#x27;;
 import { InvitationRquestDTO } from &#x27;../dtos/invitation-request.dto&#x27;;
 import { SingleCustomerRequestDTO } from &#x27;../dtos/single-customer-request.dto&#x27;;
+/**
+ * Invitation controller
+ */
+@Controller(&#x27;api/v1/invitation&#x27;)
+@UseInterceptors(CacheInterceptor)
+export class InvitationContoller {
   /**
-   * Invitation controller
+   * Invitation controller class constructor
+   * @param invitationService Invitation service
    */
-  @Controller(&#x27;api/v1/invitation&#x27;)
-  @UseInterceptors(CacheInterceptor)
-  export class InvitationContoller {
-    /**
-     * Invitation controller class constructor
-     * @param invitationService Invitation service
-     */
-    constructor(private readonly invitationservice: InvitationService) {}
-  
-    //&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
-    /**
-     * Entrypoint of the IUO API
-     * @returns Text
-     */
-    @ApiOperation({ summary: &#x27;Entry point for Invitation API&#x27; })
-    @ApiResponse({
-      status: 200,
-      description: &#x27;Returns back the list of should-be invited customers&#x27;,
-      type: String,
-    })
-    @Get()
-    @Public()
-    async() {
-      return &#x27;Welcome to Invitation list endpoint&#x27;;
-    }
-    //&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
-    /**
-     * Takes a radious in which we want to invite the customers.
-     * @param body radious circle information
-     * @returns HTTPReponse
-     */
-    @ApiOperation({ summary: &#x27;Finds the list of users which are within the circle&#x27; })
-    @ApiResponse({
-      status: 200,
-      description: &#x27;Returns back the list of should-be invited customers&#x27;,
-      type: InvitationResponseDTO,
-    })
-    @ApiBody({ type: [InvitationRquestDTO] })
-    @Header(&#x27;content-type&#x27;, &#x27;application/json&#x27;)
-    @Get(&#x27;customers&#x27;)
-    @HttpCode(HttpStatus.OK)
-    @Public()
-    async invitation(@Query() query: any): Promise&lt;HttpResponse&gt; {
-      
-      const response: HttpResponse &#x3D; await this.invitationservice.handlInvitationRequest(new InvitationRquestDTO(query));
-      return response;
-    }
-    //&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
-    /**
-     * Takes an id and returns the customer associated with.
-     * @param wuery contains user id
-     * @returns HTTPReponse
-     */
-    @ApiOperation({ summary: &#x27;Returns single customer with id&#x27; })
-    @ApiResponse({
-      status: 200,
-      description: &#x27;Returns single customer with id&#x27;,
-      type: InvitationResponseDTO,
-    })
-    @ApiBody({ type: [InvitationRquestDTO] })
-    @Header(&#x27;content-type&#x27;, &#x27;application/json&#x27;)
-    @Get(&#x27;customer&#x27;)
-    @HttpCode(HttpStatus.OK)
-    @Public()
-    async singleCustomer(@Query() query: any): Promise&lt;HttpResponse&gt; {
-      const response: HttpResponse &#x3D; await this.invitationservice.getOneCustomerById(new SingleCustomerRequestDTO(query));
-      return response;
-    }
+  constructor(private readonly invitationservice: InvitationService) {}
+
+  //&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
+  /**
+   * Entrypoint of the IUO API
+   * @returns Text
+   */
+  @ApiOperation({ summary: &#x27;Entry point for Invitation API&#x27; })
+  @ApiResponse({
+    status: 200,
+    description: &#x27;Returns back the list of should-be invited customers&#x27;,
+    type: String,
+  })
+  @Get()
+  @Public()
+  async() {
+    return &#x27;Welcome to Invitation list endpoint&#x27;;
   }
-  </code></pre>
+  //&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
+  /**
+   * Takes a radious in which we want to invite the customers.
+   * @param body radious circle information
+   * @returns HTTPReponse
+   */
+  @ApiOperation({ summary: &#x27;Finds the list of users which are within the circle&#x27; })
+  @ApiResponse({
+    status: 200,
+    description: &#x27;Returns back the list of should-be invited customers&#x27;,
+    type: InvitationResponseDTO,
+  })
+  @ApiBody({ type: [InvitationRquestDTO] })
+  @Header(&#x27;content-type&#x27;, &#x27;application/json&#x27;)
+  @Get(&#x27;customers&#x27;)
+  @HttpCode(HttpStatus.OK)
+  @Public()
+  async invitation(@Query() query: any): Promise&lt;HttpResponse&gt; {
+    const response: HttpResponse &#x3D; await this.invitationservice.handlInvitationRequest(new InvitationRquestDTO(query));
+    return response;
+  }
+  //&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
+  /**
+   * Takes an id and returns the customer associated with.
+   * @param wuery contains user id
+   * @returns HTTPReponse
+   */
+  @ApiOperation({ summary: &#x27;Returns single customer with id&#x27; })
+  @ApiResponse({
+    status: 200,
+    description: &#x27;Returns single customer with id&#x27;,
+    type: InvitationResponseDTO,
+  })
+  @ApiBody({ type: [InvitationRquestDTO] })
+  @Header(&#x27;content-type&#x27;, &#x27;application/json&#x27;)
+  @Get(&#x27;customer&#x27;)
+  @HttpCode(HttpStatus.OK)
+  @Public()
+  async singleCustomer(@Query() query: any): Promise&lt;HttpResponse&gt; {
+    const response: HttpResponse &#x3D; await this.invitationservice.getOneCustomerById(new SingleCustomerRequestDTO(query));
+    return response;
+  }
+}
+</code></pre>
     </div>
 </div>
 

@@ -90,7 +90,7 @@ export async function validateOutputDTO(dto: any, logger: any): Promise<any> {
  * @param page_number limit number of the elements
  * @returns a list of elements
  */
-export async function paginate(array:any, page_size:number, page_number:number) {
+export async function paginate(array: any, page_size: number, page_number: number) {
   // human-readable page numbers usually start with 1, so we reduce 1 in the first argument
   return array.slice((page_number - 1) * page_size, page_number * page_size);
 }
@@ -103,12 +103,10 @@ export async function paginate(array:any, page_size:number, page_number:number) 
  * @param lon2 longitude_two
  * @returns float number
  */
-export async function distance(lat1:number, lon1:number, lat2:number, lon2:number) {
-  var p = 0.017453292519943295;
-  var c = Math.cos;
-  var a = 0.5 - c((lat2 - lat1) * p)/2 + 
-          c(lat1 * p) * c(lat2 * p) * 
-          (1 - c((lon2 - lon1) * p))/2;
+export async function distance(lat1: number, lon1: number, lat2: number, lon2: number) {
+  const p = 0.017453292519943295;
+  const c = Math.cos;
+  const a = 0.5 - c((lat2 - lat1) * p) / 2 + (c(lat1 * p) * c(lat2 * p) * (1 - c((lon2 - lon1) * p))) / 2;
 
   return 12742 * Math.asin(Math.sqrt(a));
 }
@@ -119,7 +117,7 @@ export async function distance(lat1:number, lon1:number, lat2:number, lon2:numbe
  * @param predicate predicate parameter
  * @returns list of elements
  */
-export async function asyncFilter(arr:any, predicate:any){
+export async function asyncFilter(arr: any, predicate: any) {
   const results = await Promise.all(arr.map(predicate));
-  return arr.filter((_v:any, index:any) => results[index]);
+  return arr.filter((_v: any, index: any) => results[index]);
 }

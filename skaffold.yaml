@@ -23,5 +23,5 @@ deploy:
 portForward:
  - resourceType: service
    resourceName: app
-   port: 7800
-   localPort: 7800
+   port: 8085
+   localPort: 8085

@@ -126,7 +126,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/application/dtos/invitation-response.dto.ts:61</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/application/dtos/invitation-response.dto.ts:70</a></div>
                             </td>
                         </tr>
 
@@ -204,7 +204,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/application/dtos/invitation-response.dto.ts:28</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/application/dtos/invitation-response.dto.ts:37</a></div>
                         </td>
                     </tr>
 
@@ -245,7 +245,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/application/dtos/invitation-response.dto.ts:50</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/application/dtos/invitation-response.dto.ts:59</a></div>
                         </td>
                     </tr>
 
@@ -286,7 +286,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/application/dtos/invitation-response.dto.ts:39</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/application/dtos/invitation-response.dto.ts:48</a></div>
                         </td>
                     </tr>
 
@@ -327,7 +327,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/application/dtos/invitation-response.dto.ts:61</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/application/dtos/invitation-response.dto.ts:70</a></div>
                         </td>
                     </tr>
 
@@ -352,7 +352,16 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IsArray, IsDefined, IsNotEmpty, IsNotEmptyObject, IsNumber, IsString, IsUrl, ValidateNested } from &#x27;class-validator&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  IsArray,
+  IsDefined,
+  IsNotEmpty,
+  IsNotEmptyObject,
+  IsNumber,
+  IsString,
+  IsUrl,
+  ValidateNested,
+} from &#x27;class-validator&#x27;;
 import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
 import { Customer } from &#x27;../../domain/entities&#x27;;
 import { Type } from &#x27;class-transformer&#x27;;
@@ -365,63 +374,60 @@ const allowedProperties &#x3D; [&#x27;list&#x27;, &#x27;page&#x27;, &#x27;number
  * Invitation response DTO
  */
 export class InvitationResponseDTO {
-    /**
-     * A list of should be invited customers
-     */
-    @IsDefined()
-    @ValidateNested()
-    @IsArray()
-    @Type(() &#x3D;&gt; Customer)
-    @ApiProperty({
-        description: &#x27;A list of should be invited customers&#x27;,
-    })
-    list: Customer[];
+  /**
+   * A list of should be invited customers
+   */
+  @IsDefined()
+  @ValidateNested()
+  @IsArray()
+  @Type(() &#x3D;&gt; Customer)
+  @ApiProperty({
+    description: &#x27;A list of should be invited customers&#x27;,
+  })
+  list: Customer[];
 
-    /**
-     * Represents the number of retrived customers.
-     */
-    @IsDefined()
-    @IsNotEmpty()
-    @IsNumber()
-    @ApiProperty({
-        description: &#x27;Number of retrived customers&#x27;,
-    })
-    number: number;
+  /**
+   * Represents the number of retrived customers.
+   */
+  @IsDefined()
+  @IsNotEmpty()
+  @IsNumber()
+  @ApiProperty({
+    description: &#x27;Number of retrived customers&#x27;,
+  })
+  number: number;
 
-    /**
-     * Represents address of the next page.
-     */
-    @IsDefined()
-    @IsNotEmpty()
-    @IsString()
-    @ApiProperty({
-        description: &#x27;next page address&#x27;,
-    })
-    next: string;
+  /**
+   * Represents address of the next page.
+   */
+  @IsDefined()
+  @IsNotEmpty()
+  @IsString()
+  @ApiProperty({
+    description: &#x27;next page address&#x27;,
+  })
+  next: string;
 
-    /**
-     * Represents th number of  current page.
-     */
-    @IsDefined()
-    @IsNotEmpty()
-    @IsNumber()
-    @ApiProperty({
-        description: &#x27;number of current page&#x27;,
-    })
-    page: number;
+  /**
+   * Represents th number of  current page.
+   */
+  @IsDefined()
+  @IsNotEmpty()
+  @IsNumber()
+  @ApiProperty({
+    description: &#x27;number of current page&#x27;,
+  })
+  page: number;
 
-
-
-
-    /**
-     * get user DTO constructor
-     * @param properties DTO properties
-     */
-    constructor(properties: any &#x3D; {}) {
-        Object.keys(properties).forEach((key: string) &#x3D;&gt; {
-            if (allowedProperties.includes(key)) this[key as keyof this] &#x3D; properties[key];
-        });
-    }
+  /**
+   * get user DTO constructor
+   * @param properties DTO properties
+   */
+  constructor(properties: any &#x3D; {}) {
+    Object.keys(properties).forEach((key: string) &#x3D;&gt; {
+      if (allowedProperties.includes(key)) this[key as keyof this] &#x3D; properties[key];
+    });
+  }
 }
 </code></pre>
     </div>

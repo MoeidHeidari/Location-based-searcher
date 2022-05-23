@@ -2,4 +2,4 @@
  * Author Moeid Heidari
  * Date 22 May 2022
  */
-export * from './common.module'
+export * from './common.module';

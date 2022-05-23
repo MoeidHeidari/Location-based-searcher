@@ -7,9 +7,9 @@ import { InvitationService } from '../services/invitation.service';
  * User module
  */
 @Module({
-  imports: [CommonModule,CacheModule.register(),],
+  imports: [CommonModule, CacheModule.register()],
   controllers: [InvitationContoller],
-  providers: [InvitationService,InvitationRepository],
+  providers: [InvitationService, InvitationRepository],
   exports: [InvitationService],
 })
-export class IntersectionModule {}
+export class InvitationModule {}

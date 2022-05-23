@@ -12,7 +12,7 @@ describe('HealthController', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [HealthController],
-      imports: [TerminusModule,HttpModule]
+      imports: [TerminusModule, HttpModule],
     }).compile();
 
     controller = module.get<HealthController>(HealthController);

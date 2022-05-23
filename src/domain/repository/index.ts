@@ -2,4 +2,4 @@
  * Author Moeid Heidari
  * Date 22 May 2022
  */
-export * from './invitation.repository'
+export * from './invitation.repository';
