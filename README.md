@@ -235,9 +235,6 @@ through config files
 
 ```bash
 cd k8s/configFiles
-
-
-
 kubectl apply -f invitation-namespace.yaml,invitation-configmap.yaml,invitation-configmap.yaml,invitation-deployment.yaml,invitation-service.yaml
 ```
 
