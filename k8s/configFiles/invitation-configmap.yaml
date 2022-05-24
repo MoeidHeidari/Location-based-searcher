@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: invitation-config
+  namespace: invitation
+data:
+  NODE_PORT: "8085"
+  NODE_ENV: "production"
+  PARLOA_LAT: "52.493256"
+  PARLOA_LONG: "13.446082"

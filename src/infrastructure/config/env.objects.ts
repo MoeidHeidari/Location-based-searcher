@@ -3,7 +3,9 @@
  * Date 22 May 2022
  */
 import { expandEnvVariables } from '../../domain/helpers';
-
+/**
+ * Environment object variable expansion
+ */
 expandEnvVariables();
 
 /**
@@ -18,9 +20,13 @@ export enum EnvObjects {
  */
 export interface ParloaOptions {
   /**
-   * represents the the radious within the customers should be invited.
+   * Represents the latitude of Parloa locatino
    */
-  radious: number;
+  parloa_lat: number;
+  /**
+   * Represents the Longitude of Parloa locatino
+   */
+  parloa_long: number;
 }
 
 /**
@@ -29,6 +35,7 @@ export interface ParloaOptions {
  */
 export const configuration = (): any => ({
   ParloaOptions: {
-    radious: process.env.RADIOUS,
+    parloa_lat: process.env.PARLOA_LAT,
+    parloa_long: process.env.PARLOA_LONG,
   },
 });

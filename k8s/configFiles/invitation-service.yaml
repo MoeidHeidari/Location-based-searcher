@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    io.kompose.service: invitation
+  name: invitation
+  namespace: invitation
+spec:
+  ports:
+  - name: "8077"
+    port: 8077
+    targetPort: 8077
+  selector:
+    io.kompose.service: invitation
+status:
+  loadBalancer: {}

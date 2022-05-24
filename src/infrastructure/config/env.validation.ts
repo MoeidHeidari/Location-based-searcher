@@ -10,10 +10,15 @@ import { validateSync, IsOptional } from 'class-validator';
  */
 class EnvironmentVariables {
   /**
-   * Decimal places of the calculated IOU
+   * Represents the latitude of Parloa locatino
    */
   @IsOptional()
-  DECIMAL_PLACES = 3;
+  PARLOA_LAT = 52.493256;
+  /**
+   * Represents the Longitude of Parloa locatino
+   */
+  @IsOptional()
+  PARLOA_LONG = 13.446082;
 }
 
 /**
