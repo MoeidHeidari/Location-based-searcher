@@ -24,9 +24,6 @@ minikube (or any other kubernetes cluster) -for production
 
 ```bash
 git clone https://gitlab.com/moeidtopcoder2/parloa.git
-
-
-
 cd parloa
 ```
 
