@@ -31,7 +31,7 @@ cd parloa
 ```
 
 Project Documentation
- [project-documentation.md]([https://gitlab.com/moeidtopcoder2/parloa/-/blob/feature/invitation-api/project-documentation.md]))
+ [project-documentation.md]([https://gitlab.com/moeidtopcoder2/parloa/-/blob/feature/invitation-api/project-documentation.md])
 
 ---
 
