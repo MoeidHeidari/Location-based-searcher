@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #####################################################################
-## Shell script to build Grover Docker image
+## Shell script to build Parloa Docker image
 #####################################################################
 
 export $(cat ../.env | xargs)
@@ -19,7 +19,7 @@ This script helps you to run the application in different forms. below you can g
 Available options:
 
 -h, --help              Print this help and exit
--buildDocker            Build the docker image called "grover:latest"
+-buildDocker            Build the docker image called "parloa:latest"
 -runDocker              Build the docker image and run on local machine
 -runApp                 Run application with npm in usual way for development
 -runDoc                 Generate the code documentation

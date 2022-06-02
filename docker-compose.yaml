@@ -1,7 +1,7 @@
 version: '3.3'
 
 services:
-  grover:
+  parloa:
     image: ${IMAGE_NAME}:${IMAGE_VERSION}
     build:
       context: .
