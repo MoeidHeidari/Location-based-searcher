@@ -28,9 +28,9 @@ parloa celebrates its company anniversary and wants to invite all customers loca
 
 #### Provided APIs
 
-- Create new account (`/api/v1/invitation/customers?radius=100&page=1&limit=50`)***[GET]***
+- get the list of invitations (`/api/v1/invitation/customers?radius=100&page=1&limit=50`)***[GET]***
 
-- Deposit money (`/api/v1/invitation/customers?id={Id of the customer}`)***[GET]***
+- get a customer's location info (`/api/v1/invitation/customers?id={Id of the customer}`)***[GET]***
 
 ---
 
