@@ -1,0 +1,85 @@
+{
+	"info": {
+		"_postman_id": "25fe1bfa-a998-42aa-afaa-33bc9842c1da",
+		"name": "parloa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get all invitations",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8085/api/v1/invitation/customers?radius=100&page=1&limit=50",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"invitation",
+						"customers"
+					],
+					"query": [
+						{
+							"key": "radius",
+							"value": "100"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "50"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get one user",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8085/api/v1/invitation/customer?id=3e242b9d-0d2d-4d0b-a001-8cadebbc6da2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8085",
+					"path": [
+						"api",
+						"v1",
+						"invitation",
+						"customer"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3e242b9d-0d2d-4d0b-a001-8cadebbc6da2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

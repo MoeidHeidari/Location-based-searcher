@@ -1,39 +1,57 @@
-FROM node:12.19.0-alpine3.9 AS development
+FROM node:fermium-alpine AS environment
 
-WORKDIR /usr/src/app
 
-COPY package*.json ./
+ARG MS_HOME=/app
+ENV MS_HOME="${MS_HOME}"
 
-RUN npm install glob rimraf
+ENV MS_SCRIPTS="${MS_HOME}/scripts"
 
-RUN npm install
+ENV USER_NAME=node USER_UID=1000 GROUP_NAME=node GROUP_UID=1000
 
-COPY . .
+WORKDIR "${MS_HOME}"
 
-RUN npm run build
+# Build
+FROM environment AS develop
 
-FROM node:12.19.0-alpine3.9 as production
+COPY ["./package.json", "./package-lock.json", "${MS_HOME}/"]
 
-ARG NODE_ENV=production
-ENV NODE_ENV=${NODE_ENV}
+FROM develop AS builder
+COPY . "${MS_HOME}"
 
-ARG NODE_PORT=8085
-ENV NODE_PORT=${NODE_PORT}
 
-ARG PARLOA_LAT=52.493256
-ENV PARLOA_LAT=${PARLOA_LAT}
+RUN PATH="$(npm bin)":${PATH} \
+  && npm ci \
+  && npm run test:ci \
+  && npm run test:e2e \
+  && npm run-script build \
+  # Clean up dependencies for production image
+  && npm install --frozen-lockfile  --production && npm cache clean --force
 
-ARG PARLOA_LONG=13.446082
-ENV PARLOA_LONG=${PARLOA_LONG}
+# Serve
+FROM environment AS prod
 
-WORKDIR /usr/src/app
 
-COPY package*.json ./
+COPY ["./scripts/docker-entrypoint.sh", "/usr/local/bin/entrypoint"]
+COPY ["./scripts/bootstrap.sh", "/usr/local/bin/bootstrap"]
+COPY --from=builder "${MS_HOME}/node_modules" "${MS_HOME}/node_modules"
+COPY --from=builder "${MS_HOME}/dist" "${MS_HOME}/dist"
 
-RUN npm install
+RUN  \
+  apk --update add --no-cache tini bash \
+  && deluser --remove-home node \
+  && addgroup -g ${GROUP_UID} -S ${GROUP_NAME} \
+  && adduser -D -S -s /sbin/nologin -u ${USER_UID} -G ${GROUP_NAME} "${USER_NAME}" \
+  && chown -R "${USER_NAME}:${GROUP_NAME}" "${MS_HOME}/" \
+  && chmod a+x \
+    "/usr/local/bin/entrypoint" \
+    "/usr/local/bin/bootstrap" \
+  && rm -rf \    
+    "/usr/local/lib/node_modules" \
+    "/usr/local/bin/npm" \
+    "/usr/local/bin/docker-entrypoint.sh"
+USER "${USER_NAME}"
 
-COPY . .
 
-COPY --from=development /usr/src/app/dist ./dist
+EXPOSE 8085
 
-CMD ["node", "dist/main"]
+ENTRYPOINT [ "/sbin/tini", "--", "/usr/local/bin/entrypoint" ]
