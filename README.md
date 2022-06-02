@@ -36,7 +36,7 @@ parloa celebrates its company anniversary and wants to invite all customers loca
 
 ## Code architecture
 
-Onion Architecture
+Source Architecture
 
 ```bash
 src
