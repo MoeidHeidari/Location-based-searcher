@@ -75,9 +75,9 @@ src
 ## source code
 
 ```bash
-tar -xvf monetary-transaction.tar
+git clone https://gitlab.com/moeidtopcoder2/parloa.git
 
-cd monetary-transaction
+cd parloa
 ```
 
 ## Service build information
