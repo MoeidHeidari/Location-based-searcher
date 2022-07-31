@@ -2,7 +2,7 @@
 
 ## Service description?
 
-parloa celebrates its company anniversary and wants to invite all customers located within a 100km radius. This repository hosts a solution implemented to meet the requirements of Parloa's anniversary application. (for recruitment process )
+parloa celebrates its company anniversary and wants to invite all customers located within a 100km radius. This repository hosts a solution implemented to meet the requirements of Parloa's anniversary application
 
 ## Prerequisites:
 
